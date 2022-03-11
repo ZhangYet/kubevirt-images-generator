@@ -43,8 +43,4 @@ do
 	docker rmi $NAME_REGISTRY/$NAME_IMAGE:$OS_VERSION
 done
 
-echo "Clean..."
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-docker rmi $(docker images | grep "^<none>" | awk '{ print $3 }')
-docker rmi $(docker images | grep "<none>" | grep "$NAME_IMAGE" | awk '{ print $3 }')
+echo "done"

@@ -21,6 +21,7 @@ RUN KEY_LOOP="true"; \
 while [ $KEY_LOOP == "true" ]; do \
 	echo "Process extension: $IMAGE_EXTENSION"; \
 	if [ "$IMAGE_EXTENSION" == "qcow2" ] ; then \
+	        qemu-img resize /disk/$FILE_NAME +10G; \
 		qemu-img convert -f qcow2 -O raw /disk/$FILE_NAME /disk/$OS_NAME.img; \
 		rm -rf /disk/$FILE_NAME; \
 		KEY_LOOP="false"; \
